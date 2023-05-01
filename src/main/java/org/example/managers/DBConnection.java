@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    private static final String url = "jdbc:sqlite:C:/Users/rikon/Documents/Code/DB/filmrater.db";
+    private static final String url = "jdbc:sqlite:filmrater.db";
     private static Connection conn = null;
     public static void connect() {
 

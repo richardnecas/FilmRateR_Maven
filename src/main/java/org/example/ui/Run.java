@@ -26,7 +26,7 @@ public class Run {
             Utils.print("Vyberte co chcete delat:");
             switch(Utils.intInput()){
                 case 1:
-                    ui.createFilm();
+                    ui.createFilm(dirmng, actmng);
                     break;
                 case 2:
                     ui.editFilm(dirmng, actmng);

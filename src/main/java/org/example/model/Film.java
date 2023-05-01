@@ -67,4 +67,11 @@ public abstract class Film <R extends Review> extends DBBase{
         review.setStatus(BaseStatus.created);
         reviews.add(review);
     }
+
+    public void addActor(Actor actor){
+        if (actors == null){
+            actors = new ArrayList<>();
+        }
+        actors.add(actor);
+    }
 }

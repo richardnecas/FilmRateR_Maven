@@ -51,7 +51,7 @@ public class UI {
         }
     }
 
-    public void createFilm() throws Exception {
+    public void createFilm(DirectorManager dirmng, ActorManager actmng) throws Exception {
         Film film = null;
         Utils.print("Vyberte typ filmu: 1. animovany | 2. hrany");
         int in = Utils.intInput();
@@ -61,14 +61,13 @@ public class UI {
             film = new Played();
         } else {
             Utils.print("Neplatny vyber, opakujte akci!");
-            createFilm();
+            createFilm(dirmng, actmng);
         }
         Utils.print("Rok vydani filmu: ");
         film.setYearOfRelease(Utils.intInput());
         Utils.print("Jmeno rezisera: ");
         String[] names = Utils.stringInput().split(" ");
-        film.getDirector().setName(names[0]);
-        film.getDirector().setSurname(names[1]);
+        film.setDirector(dirmng.addDirector(names[0], names[1]));
         Utils.print("Zadejte umelce (q pro ukonceni zadavani umelcu: ");
         boolean ter = false;
         while (!ter){
@@ -78,7 +77,7 @@ public class UI {
                 names = name.split(" ");
                 actor.setName(names[0]);
                 actor.setSurname(names[1]);
-                film.getActors().add(actor);
+                film.addActor(actmng.addActor(names[0],names[1],film));
             } else {
                 ter = true;
             }

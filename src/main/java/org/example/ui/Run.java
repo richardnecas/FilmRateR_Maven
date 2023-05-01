@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Run {
-    UI ui;
-    FilmManager filmng;
-    ActorManager actmng;
-    DirectorManager dirmng;
+    private UI ui;
+    private FilmManager filmng;
+    private ActorManager actmng;
+    private DirectorManager dirmng;
     public Run(List<Film> films, FilmManager filmng, ActorManager actmng, DirectorManager dirmng){
         ui = new UI(films);
         this.filmng = filmng;

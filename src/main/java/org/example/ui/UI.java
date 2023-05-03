@@ -46,7 +46,9 @@ public class UI {
     public void printAllFilms(){
         if (films.size() != 0){
             for (Film dat : films) {
-                printFilm(dat);
+                if (dat.getStatus() != DBBase.BaseStatus.deleted) {
+                    printFilm(dat);
+                }
             }
         } else {
             Utils.print("Zadne filmy v databazi!");
@@ -167,6 +169,7 @@ public class UI {
                             Utils.print("Neplatny vyber!");
                             break;
                     }
+                    break;
                 case 5:
                     if (film instanceof Played){
                         Utils.print("Neplatny vyber!");

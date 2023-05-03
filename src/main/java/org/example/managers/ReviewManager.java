@@ -12,13 +12,15 @@ import java.util.List;
 public class ReviewManager {
 
     public void reviewToDB(Connection conn, List<Review> reviews) throws SQLException {
+        if (reviews != null){
         for (Review dat : reviews){
-            if (dat.getStatus() == DBBase.BaseStatus.created){
-                PreparedStatement stmt = conn.prepareStatement(insertQuery);
-                stmt.setInt(1, dat.getFilm_id());
-                stmt.setString(2, dat.getReview());
-                stmt.setInt(3, dat.getPoints());
-                stmt.executeUpdate();
+                if (dat.getStatus() == DBBase.BaseStatus.created) {
+                    PreparedStatement stmt = conn.prepareStatement(insertQuery);
+                    stmt.setInt(1, dat.getFilm_id());
+                    stmt.setString(2, dat.getReview());
+                    stmt.setInt(3, dat.getPoints());
+                    stmt.executeUpdate();
+                }
             }
         }
     }

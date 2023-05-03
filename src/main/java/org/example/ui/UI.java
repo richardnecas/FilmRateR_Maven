@@ -63,6 +63,8 @@ public class UI {
             Utils.print("Neplatny vyber, opakujte akci!");
             createFilm(dirmng, actmng);
         }
+        Utils.print("Nazev filmu:");
+        film.setName(Utils.stringInput());
         Utils.print("Rok vydani filmu: ");
         film.setYearOfRelease(Utils.intInput());
         Utils.print("Jmeno rezisera: ");

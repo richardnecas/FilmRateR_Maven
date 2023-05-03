@@ -56,7 +56,8 @@ public class FilmManager {
                 stmt.setInt(2, dat.getDirector().getId());
                 stmt.setInt(3, dat instanceof Animated ? 1 : 0);
                 stmt.setInt(4, dat instanceof Animated ? ((Animated) dat).getRecommendedAge() : 0);
-                stmt.setInt(5, dat.getId());
+                stmt.setInt(5, dat.getYearOfRelease());
+                stmt.setInt(6, dat.getId());
                 stmt.executeUpdate();
             } else if (dat.getStatus() == DBBase.BaseStatus.created) {
                 PreparedStatement stmt = conn.prepareStatement(insertQuery);
@@ -64,6 +65,7 @@ public class FilmManager {
                 stmt.setInt(2, dat.getDirector().getId());
                 stmt.setInt(3, dat instanceof Animated ? 1 : 0);
                 stmt.setInt(4, dat instanceof Animated ? ((Animated) dat).getRecommendedAge() : 0);
+                stmt.setInt(5, dat.getYearOfRelease());
                 stmt.executeUpdate();
             }
             if (dat.getStatus() != DBBase.BaseStatus.deleted){
@@ -91,7 +93,7 @@ public class FilmManager {
     }
 
     private static final String selectQuery = "SELECT * FROM films WHERE isDeleted = 0 ORDER BY filmName ASC";
-    private static final String insertQuery = "INSERT INTO films (filmName, director_id, isAnimated, recomendedAge) VALUES (?,?,?,?)";
-    private static final String updateQuery = "UPDATE films SET filmName = ?, director_id = ?, isAnimated = ? recomendedAge = ? WHERE id = ?";
+    private static final String insertQuery = "INSERT INTO films (filmName, director_id, isAnimated, recomendedAge, yearOfRelease) VALUES (?,?,?,?,?)";
+    private static final String updateQuery = "UPDATE films SET filmName = ?, director_id = ?, isAnimated = ? recomendedAge = ? yearOfRelease = ? WHERE id = ?";
     private static final String deleteQuery = "UPDATE films SET isDeleted = 1 WHERE id = ?";
 }

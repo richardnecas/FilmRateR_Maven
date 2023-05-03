@@ -36,9 +36,11 @@ public class UI {
             Utils.print(act.getName() + " " + act.getSurname());
         }
         List<Review> reviews = film.getReviews();
-        for (Review rev : reviews){
-            Utils.print("\t" + stat + ": " + rev.getPoints());
-            Utils.print("\tHodnoceni: " + rev.getReview());
+        if (film.getReviews() != null){
+            for (Review rev : reviews) {
+                Utils.print("\t" + stat + ": " + rev.getPoints());
+                Utils.print("\tHodnoceni: " + rev.getReview());
+            }
         }
     }
     public void printAllFilms(){
@@ -70,7 +72,7 @@ public class UI {
         Utils.print("Jmeno rezisera: ");
         String[] names = Utils.stringInput().split(" ");
         film.setDirector(dirmng.addDirector(names[0], names[1]));
-        Utils.print("Zadejte umelce (q pro ukonceni zadavani umelcu: ");
+        Utils.print("Zadejte umelce (q pro ukonceni zadavani umelcu): ");
         boolean ter = false;
         while (!ter){
             Actor actor = new Actor();

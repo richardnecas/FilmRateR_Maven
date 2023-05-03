@@ -219,7 +219,7 @@ public class ActorManager {
     private final String selectCrossQuery = "SELECT * FROM crossArtists WHERE isDeleted = 0";
     private final String insertQuery = "INSERT INTO artists(name, surname) VALUES(?, ?)";
     //private final String editQuery = "UPDATE artists SET name = ?, surname = ? WHERE id = ?";
-    private static final String insertCrossQuery = "INSERT INTO crossArtists(film_id, artist_id) VALUES (?, ?)";
+    private static final String insertCrossQuery = "INSERT INTO crossArtists(film_id, artists_id) VALUES (?, ?)";
     private static final String editCrossQuery = "UPDATE crossArtists SET artist_id = ? WHERE id = ?";
     private static final String deleteCrossQuery = "UPDATE crossArtists SET isDeleted = 1 WHERE id = ?";
 }
